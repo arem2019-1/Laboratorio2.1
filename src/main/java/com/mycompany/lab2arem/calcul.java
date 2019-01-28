@@ -70,9 +70,9 @@ public class calcul implements CalculateDate {
     }
 
     @Override
-    public void addDato(String numero) {
-        Double tmp=Double.parseDouble(numero);
-        datos.add(tmp);
+    public void addDato(Double numero) {
+        datos.add(numero);
+        System.out.println("tamaño de datos "+datos.size());
         //System.out.println("se agrego " + numero);
     }
     
@@ -81,18 +81,7 @@ public class calcul implements CalculateDate {
         return Media(datos);
     }
     
-    public Double db(String m){
-    Double me=Double.parseDouble(m);
-    return DesviaEstandar(datos,me);
-    }
-    
-    public Double dat(){
-        return 1.0;
-    }
-            
-            
-            
-    public String prueba(){
-        return "veamos";
+    public Double db(Double m){
+    return DesviaEstandar(datos,m);
     }
 }

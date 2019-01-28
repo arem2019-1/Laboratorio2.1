@@ -16,6 +16,6 @@ public interface CalculateDate {
     
     public Double Media(LinkedList<Double>datos);
     public Double DesviaEstandar(LinkedList<Double> dat,Double media);
-    public void addDato(String numero);
+    public void addDato(Double numero);
     
 }

@@ -4,21 +4,26 @@ var Calculos = (function () {
         num = document.getElementById("x").value;
         //alert(num);
         addCelda();
-        axios.get('http://localhost:4567/hello/put/:' + num ).then(function (response) {
+        axios.get('http://localhost:4567/hello/put/' + num ).then(function (response) {
             console.log('save succesfully');
         })
                 .catch(function (error) {
                     console.log(error);
                 });
     };
+
     function getMedia(){
-        axios.get('http://localhost:4567/hello/get/media' ).then(function (response) {
-            document.getElementById("med").innerHTML = response.data;
-            console.log('save succesfully');
-        })
-                .catch(function (error) {
-                    console.log(error);
-                });
+            alert("Hola, pasamos");
+            
+
+            $(document).ready(function(){
+             $("button").click(function(){
+            $.get("http://localhost:4567/hello/get/media", function(data, status){
+              alert("Data: " + data + "\nStatus: " + status);
+            });
+          });
+});
+       
     };        
         
     

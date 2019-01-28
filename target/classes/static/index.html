@@ -1,13 +1,4 @@
-<!-- saved from url=(0050)https://getbootstrap.com/docs/4.0/examples/cover/# 
-var Calculos=(function{
 
-
-    };
-    return {
-
-    };
-})();
--->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -41,15 +32,17 @@ var Calculos=(function{
                 
                 <form action="procesar.php" onkeypress="return anular(event)">   
                                   <tr>
-                    <td  id="med"  colspan="3" align="center"><p>Media:</p></td>
+                    <td  id="med"  colspan="3" align="center"  ><p>Media:</p></td>
                 </tr>
                 <tr>
                     <td  id="dv"  colspan="3" align="center"><p>Desviacion Estandar:</p></td>
                 </tr>
                     
                     
-                </form>                
-                <input type="button" value="Obtener Media" onclick="Calculos.getMedia()">
+                </form>  
+ 
+ <input type="button" value="Obtener Media" onclick="Calculos.getMedia()">
+ <button>Obtener media2</button>
                 <input type="button" value="Obtener Desviacion Estandar" onclick="Calculos.getDv()">
             <input type="button" value="Genera una tabla" onclick="Calculos.addCelda()">
                 <table id="tabla" border="2">
@@ -68,6 +61,6 @@ var Calculos=(function{
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="calculos.js"> </script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>                
     </body></html>

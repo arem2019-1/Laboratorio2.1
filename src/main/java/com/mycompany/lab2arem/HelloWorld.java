@@ -17,31 +17,35 @@ public class HelloWorld {
 
     public static void main(String[] args) {
         //get("/hello", (req, res) -> "Hello World");
-        
-        get("/hello/:name", (request, response) -> {
+        get("/hello/put/:name", (request, response) -> {
             String g=request.params(":name");
-            //proc.addDato(g);
-            //Double num= Double.parseDouble(g);
-            //System.out.println("miremos"+proc.prueba());
-            //System.out.println("miremos "+g+"el año"+request.params(":age"));
+            try{
+            Double num= Double.parseDouble(g);
+            proc.addDato(num);
+            return 1.0;
+            
+        }catch(Exception e){
+                System.out.println(""+e);
+                
+                }
             return 1.0;
         });
 
 
-        get("/get/media", (request, response) -> {
-            String g=request.params(":name");
+        get("hello/get/media", (request, response) -> {
+            //String g=request.params(":name");
             //Double num= Double.parseDouble(g);
-            System.out.println("miremos"+proc.prueba());
-            System.out.println("miremos "+g+"el año"+request.params(":age"));
+            Double tmp=proc.media();
+            System.out.println("miremos"+tmp);
             return proc.media();
         });        
         
-        get("/get/dv/:media", (request, response) -> {
+        get("hello/ad/dv/:media", (request, response) -> {
             String g=request.params(":media");
             //Double num= Double.parseDouble(g);
-            System.out.println("miremos"+proc.prueba());
+            
             System.out.println("miremos "+g+"el año"+request.params(":age"));
-            return proc.dat();
+            return 12;
         });                
         /**
         path("/hello", () -> {
