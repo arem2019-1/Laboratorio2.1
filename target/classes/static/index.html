@@ -1,0 +1,73 @@
+<!-- saved from url=(0050)https://getbootstrap.com/docs/4.0/examples/cover/# 
+var Calculos=(function{
+
+
+    };
+    return {
+
+    };
+})();
+-->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="https://getbootstrap.com/favicon.ico">
+        <title>ARSW-LAB7</title>
+        <!-- Bootstrap core CSS -->
+        <!-- Custom styles for this template -->
+        <script type="text/javascript">
+            function anular(e) {
+            tecla = (document.all) ? e.keyCode : e.which;
+            return (tecla != 13);
+            }
+        </script>
+    </head>
+
+    <body class="text-center" onload="Calculos.genera_tabla()">
+        <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+            <header class="masthead mb-auto">
+                <div class="inner">
+                    <h3 class="masthead-brand">Informacio sobre Media y Desviacion Estandar</h3>
+
+                </div>
+            </header>
+            <main role="main" class="inner cover">
+                <form action="procesar.php" onkeypress="return anular(event)">   
+                    Numers<input id="x" type="text" name="company"/>
+                    <button id="sendNum" type="button" onclick="Calculos.manDat()">Send NUmero</button>
+                </form>
+                
+                <form action="procesar.php" onkeypress="return anular(event)">   
+                                  <tr>
+                    <td  id="med"  colspan="3" align="center"><p>Media:</p></td>
+                </tr>
+                <tr>
+                    <td  id="dv"  colspan="3" align="center"><p>Desviacion Estandar:</p></td>
+                </tr>
+                    
+                    
+                </form>                
+                <input type="button" value="Obtener Media" onclick="Calculos.getMedia()">
+                <input type="button" value="Obtener Desviacion Estandar" onclick="Calculos.getDv()">
+            <input type="button" value="Genera una tabla" onclick="Calculos.addCelda()">
+                <table id="tabla" border="2">
+                </table>
+                <ul class="list-group">
+                    <p class="lead">
+                    <p class="lead">Consulta la informacion sobre la media y la desviacion estandar</p>
+                    </p>
+                    <p class="lead">
+                    <p class="lead">Aqui ustedes aprenedran a calcular la media y la desviacion estandar. Solamente debe ingresar la cantidad de numeros y escoger la opcion deseada.</p>
+                    </p>                                    
+                    </p>
+            </main>     
+        </div>
+        <!-- Bootstrap core JavaScript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="calculos.js"> </script>
+
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>                
+    </body></html>
