@@ -11,8 +11,10 @@ import static spark.Spark.*;
 public class HelloWorld {
 
     private static calcul proc = new calcul();
+//
 
     public static void main(String[] args) {
+
         port(getPort());
         options("/*",
                 (request, response) -> {
@@ -36,6 +38,42 @@ public class HelloWorld {
 
         before((request, response) -> response.header("Access-Control-Allow-Origin", "*"));
 
+        get("/", (request, response) -> {
+
+            return "<form action=\"/action_page\">\n"
+                    + "  Numeros<br>\n"
+                    + "  <input type=\"text\" name=\"numeros\" value=\"1,2,3,4,5,6,7\">\n"
+                    + "  <br>\n"
+                    + "\n"
+                    + "  <br><br>\n"
+                    + "  <input type=\"submit\" value=\"Submit\"  >\n"
+                    + "</form> ";
+
+        });
+
+        get("/action_page", (req, res) -> {
+            String datos = req.queryParams("numeros");
+            String[] dat = datos.split(",");
+            for (int i = 0; i < dat.length; i++) {
+                Double num = Double.parseDouble(dat[i]);
+                proc.addDato(num);
+            }
+            Double media = proc.media();
+            Double dv = proc.db(media);
+            proc.reset();
+            return "<html>\n"
+                    + "<body>\n"
+                    + "\n"
+                    + "<h2>Resultados de su busqueda</h2>\n"
+                    + "\n"
+                    + "\n"+"<p>La media y desviacion estandar es: "+media+"<br>"
+                    + "\n"+
+                    "<p>La desviacion estandar es :"+dv+"<br>"
+                    +"<a href=\"/\">Si desea realizar otra consulta</a>"+ "</body>\n"
+                    + "</html>";
+
+        });
+        //
         //get("/hello", (req, res) -> "Hello World");
         get("/hello/put/:name", (request, response) -> {
             String g = request.params(":name");
@@ -61,45 +99,21 @@ public class HelloWorld {
 
         get("hello/ad/dv/:media", (request, response) -> {
             String g = request.params(":media");
-            Double num= Double.parseDouble(g);
+            Double num = Double.parseDouble(g);
             return proc.db(num);
         });
         get("hello/ad/reset", (request, response) -> {
             proc.reset();
             return "Ok";
-        });        
-        
-        
-        /**
-         * path("/hello", () -> {
-         *
-         * path("/put", () -> { get("/dt/:name", (request, response) -> { String
-         * g = request.params(":name"); System.out.println("que va ver"+g);
-         * //Double num= Double.parseDouble(g); //datos.add(num);
-         * //System.out.println("haber "+datos.isEmpty());
-         * //System.out.println("numero "+num);          *
-         *
-         * return "Hello";
-         *
-         *
-         * });
-         *
-         * }); path("/media", () -> { get("/md", (req, res) -> "good");
-         *
-         * }); });
-         */
+        });
     }
-    
-    
-    static int getPort(){
-        if(System.getenv("PORT")!= null){
+
+    static int getPort() {
+        if (System.getenv("PORT") != null) {
             return Integer.parseInt(System.getenv("PORT"));
         }
         return 4567;
-    
+
     }
-    
-    
-    
 
 }
