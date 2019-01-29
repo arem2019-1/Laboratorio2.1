@@ -13,7 +13,7 @@ public class HelloWorld {
     private static calcul proc = new calcul();
 
     public static void main(String[] args) {
-
+        port(getPort());
         options("/*",
                 (request, response) -> {
 
@@ -89,5 +89,17 @@ public class HelloWorld {
          * }); });
          */
     }
+    
+    
+    static int getPort(){
+        if(System.getenv("PORT")!= null){
+            return Integer.parseInt(System.getenv("PORT"));
+        }
+        return 4567;
+    
+    }
+    
+    
+    
 
 }

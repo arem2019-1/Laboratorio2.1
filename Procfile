@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* calculate.main
+web: java $JAVA_OPTS -cp target/classes:target/dependency/* com.mycompany.lab2arem.HelloWorld

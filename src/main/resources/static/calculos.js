@@ -6,7 +6,7 @@ var Calculos = (function () {
         num = document.getElementById("x").value;
         //alert(num);
         addCelda();
-        axios.get('http://localhost:4567/hello/put/' + num).then(function (response) {
+        axios.get('http://localhost:5000/hello/put/' + num).then(function (response) {
             console.log('save succesfully');
         })
                 .catch(function (error) {
@@ -16,7 +16,7 @@ var Calculos = (function () {
     ;
 
     function getMedia() {
-        axios.get('http://localhost:4567/hello/get/media').then(function (response) {
+        axios.get('http://localhost:5000/hello/get/media').then(function (response) {
             media = response.data;
             document.getElementById("respuestaM").innerHTML = response.data;
             console.log('save succesfully');
@@ -33,7 +33,7 @@ var Calculos = (function () {
 
 
     function getDv() {
-        axios.get('http://localhost:4567/hello/ad/dv/' + media).then(function (response) {
+        axios.get('http://localhost:5000/hello/ad/dv/' + media).then(function (response) {
             document.getElementById("respuestaD").innerHTML = response.data;
             console.log('save succesfully');
         })
