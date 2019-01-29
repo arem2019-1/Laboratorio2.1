@@ -10,8 +10,8 @@
         <!-- Custom styles for this template -->
         <script type="text/javascript">
             function anular(e) {
-            tecla = (document.all) ? e.keyCode : e.which;
-            return (tecla != 13);
+                tecla = (document.all) ? e.keyCode : e.which;
+                return (tecla != 13);
             }
         </script>
     </head>
@@ -29,22 +29,24 @@
                     Numers<input id="x" type="text" name="company"/>
                     <button id="sendNum" type="button" onclick="Calculos.manDat()">Send NUmero</button>
                 </form>
-                
+
                 <form action="procesar.php" onkeypress="return anular(event)">   
-                                  <tr>
-                    <td  id="med"  colspan="3" align="center"  ><p>Media:</p></td>
-                </tr>
-                <tr>
-                    <td  id="dv"  colspan="3" align="center"><p>Desviacion Estandar:</p></td>
-                </tr>
-                    
-                    
+                    <tr>
+                        <td  id="dv"  colspan="3" align="center"><p>Media: </p></td>
+                    <div   id="respuestaM" style="text-align:center"></div>                          
+                    </tr>
+                    <tr>
+                        <td  id="dv"  colspan="3" align="center"><p>Desviacion Estandar:</p></td>
+                    <div   id="respuestaD" style="text-align:center"></div>                                                  
+                    </tr>
+
+
                 </form>  
- 
- <input type="button" value="Obtener Media" onclick="Calculos.getMedia()">
- <button>Obtener media2</button>
+
+                <input type="button" value="Obtener Media" onclick="Calculos.getMedia()">
                 <input type="button" value="Obtener Desviacion Estandar" onclick="Calculos.getDv()">
-            <input type="button" value="Genera una tabla" onclick="Calculos.addCelda()">
+                //<input type="button" value="Genera una tabla" onclick="Calculos.addCelda()">
+                <input type="button" value="Limpiar la Lista para un nuevo calculo" onclick="Calculos.reset()">
                 <table id="tabla" border="2">
                 </table>
                 <ul class="list-group">
@@ -60,7 +62,7 @@
         <!-- Bootstrap core JavaScript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
-        <script src="calculos.js"> </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="calculos.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>                
     </body></html>

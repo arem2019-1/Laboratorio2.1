@@ -12,9 +12,6 @@ public class HelloWorld {
 
     private static calcul proc = new calcul();
 
-    private static LinkedList<Double> datos = new LinkedList<Double>();
-    private static Double media;
-
     public static void main(String[] args) {
 
         options("/*",
@@ -64,11 +61,15 @@ public class HelloWorld {
 
         get("hello/ad/dv/:media", (request, response) -> {
             String g = request.params(":media");
-            //Double num= Double.parseDouble(g);
-
-            System.out.println("miremos " + g + "el año" + request.params(":age"));
-            return 12;
+            Double num= Double.parseDouble(g);
+            return proc.db(num);
         });
+        get("hello/ad/reset", (request, response) -> {
+            proc.reset();
+            return "Ok";
+        });        
+        
+        
         /**
          * path("/hello", () -> {
          *

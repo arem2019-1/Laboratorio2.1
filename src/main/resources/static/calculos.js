@@ -1,44 +1,49 @@
 
+var media;
+
 var Calculos = (function () {
     function manDat() {
         num = document.getElementById("x").value;
         //alert(num);
         addCelda();
-        axios.get('http://localhost:4567/hello/put/' + num ).then(function (response) {
+        axios.get('http://localhost:4567/hello/put/' + num).then(function (response) {
             console.log('save succesfully');
         })
                 .catch(function (error) {
                     console.log(error);
                 });
-    };
+    }
+    ;
 
-    function getMedia(){
-        axios.get('http://localhost:4567/hello/get/media' ).then(function (response) {
-            alert(response.data);
-            document.getElementById("med").innerHTML = response.data;
-            console.log('save succesfully');
-        })
-        .catch(function (error) {
-             console.log(error);
- });
-        
- 
-
-       
-    };        
-        
-    
-    function getDv(){
-        axios.get('http://localhost:4567/hello/ad/dv' ).then(function (response) {
-            document.getElementById("dv").innerHTML = response.data;
+    function getMedia() {
+        axios.get('http://localhost:4567/hello/get/media').then(function (response) {
+            media = response.data;
+            document.getElementById("respuestaM").innerHTML = response.data;
             console.log('save succesfully');
         })
                 .catch(function (error) {
                     console.log(error);
-                });        
-        
-    };
-    
+                });
+
+
+
+
+    }
+    ;
+
+
+    function getDv() {
+        axios.get('http://localhost:4567/hello/ad/dv/' + media).then(function (response) {
+            document.getElementById("respuestaD").innerHTML = response.data;
+            console.log('save succesfully');
+        })
+                .catch(function (error) {
+                    console.log(error);
+                });
+
+    }
+    ;
+
     function addCelda() {
         var body = document.getElementsByTagName("body")[0];
 
@@ -80,14 +85,26 @@ var Calculos = (function () {
         body.appendChild(tabla);
         tabla.setAttribute("border", "2");
     }
+    function reset() {
+        axios.get('http://localhost:4567/hello/ad/reset').then(function (response) {
+            console.log('save succesfully');
+        })
+                .catch(function (error) {
+                    console.log(error);
+                });
 
+
+
+    }
 
     return {
         manDat: manDat,
-        addCelda:addCelda,
-        genera_tabla:genera_tabla,
-        getMedia:getMedia,
-        getDv:getDv
+        addCelda: addCelda,
+        genera_tabla: genera_tabla,
+        getMedia: getMedia,
+        getDv: getDv,
+        reset: reset
+
     };
 })();
 

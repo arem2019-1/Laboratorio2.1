@@ -84,4 +84,9 @@ public class calcul implements CalculateDate {
     public Double db(Double m){
     return DesviaEstandar(datos,m);
     }
+    
+    public void reset(){
+        datos.clear();
+        System.out.println("TAAMAÑO DEL DATOS :"+datos.size());
+    }
 }
