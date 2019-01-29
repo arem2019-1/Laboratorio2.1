@@ -72,21 +72,16 @@ public class calcul implements CalculateDate {
     @Override
     public void addDato(Double numero) {
         datos.add(numero);
-        System.out.println("tamaño de datos "+datos.size());
-        //System.out.println("se agrego " + numero);
     }
-    
     
     public Double media(){
         return Media(datos);
     }
-    
     public Double db(Double m){
     return DesviaEstandar(datos,m);
     }
     
     public void reset(){
         datos.clear();
-        System.out.println("TAAMAÑO DEL DATOS :"+datos.size());
     }
 }

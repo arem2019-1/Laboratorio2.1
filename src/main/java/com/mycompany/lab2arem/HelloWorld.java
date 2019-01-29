@@ -11,8 +11,6 @@ import static spark.Spark.*;
 public class HelloWorld {
 
     private static calcul proc = new calcul();
-//
-
     public static void main(String[] args) {
 
         port(getPort());
@@ -73,8 +71,7 @@ public class HelloWorld {
                     + "</html>";
 
         });
-        //
-        //get("/hello", (req, res) -> "Hello World");
+
         get("/hello/put/:name", (request, response) -> {
             String g = request.params(":name");
             try {
@@ -90,8 +87,6 @@ public class HelloWorld {
         });
 
         get("hello/get/media", (request, response) -> {
-            //String g=request.params(":name");
-            //Double num= Double.parseDouble(g);
             Double tmp = proc.media();
             System.out.println("miremos" + tmp);
             return proc.media();
