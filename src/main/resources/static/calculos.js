@@ -13,16 +13,17 @@ var Calculos = (function () {
     };
 
     function getMedia(){
-            alert("Hola, pasamos");
-            
+        axios.get('http://localhost:4567/hello/get/media' ).then(function (response) {
+            alert(response.data);
+            document.getElementById("med").innerHTML = response.data;
+            console.log('save succesfully');
+        })
+        .catch(function (error) {
+             console.log(error);
+ });
+        
+ 
 
-            $(document).ready(function(){
-             $("button").click(function(){
-            $.get("http://localhost:4567/hello/get/media", function(data, status){
-              alert("Data: " + data + "\nStatus: " + status);
-            });
-          });
-});
        
     };        
         
